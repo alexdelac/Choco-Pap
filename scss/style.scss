@@ -1,0 +1,8 @@
+// scss-docs-start theme-colors-map
+$theme-colors: (
+  "primary":    #B65F28,
+  "secondary":  #55C0CF,
+  "warning":    #FFD543,
+) !default;
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss"

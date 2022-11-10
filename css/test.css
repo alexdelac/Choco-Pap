@@ -1,0 +1,14 @@
+h1 {
+    font-size: 7em;
+}
+
+.imgCarousel {
+    max-height: 90vh;
+}
+
+#panier {
+    position: absolute;
+    top: 80px;
+    right: 0px;
+    z-index: 1000;
+}

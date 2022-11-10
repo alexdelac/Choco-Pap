@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/test.css">
+    <title>Choco Pap</title>
+</head>
+<body>
+    <header class="d-flex">
+        <nav class="navbar navbar-expand-lg bg-primary col-12">
+            <div class="container-fluid">
+              <img src="/images/logo.png" alt="logo pap" class="img-fluid" style="max-width: 60px;">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active text-warning" aria-current="page" href="#">Accueil</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-warning" href="/boutique.html">Boutique</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-warning" href="#" id="boutonPanier"><img src="/images/logo panier.png" alt="logo panier" class="" style="width: 30px;"></a>
+                    <div id="panier" class="bg-primary">
+                        <h1>Panier</h1>
+                        <ol id="listePanier">
+                            <li>panier vide</li>
+                        </ol>
+                        <p>Total</p>
+                    </div>
+                </li>
+                </ul>
+              </div>
+            </div>
+        </nav>        
+    </header>
+    <main>
+        <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="/images/accueil1.jpg" class="d-block w-100 imgCarousel" alt="photo chocolat">
+              </div>
+              <div class="carousel-item">
+                <img src="/images/accueil2.jpg" class="d-block w-100 imgCarousel" alt="photo chocolat">
+              </div>
+              <div class="carousel-item">
+                <img src="/images/accueil3.jpg" class="d-block w-100 imgCarousel" alt="photo chocolat">
+              </div>
+            </div>
+            <div class="position-absolute top-50 start-50 translate-middle text-center container-fluid">
+              <h1 class="text-primary"><strong>CHOCO PAP</strong></h1>
+              <div class="d-none d-md-block">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+              </div>
+              <button class="btn btn-primary px-5 py-3"><a href="/boutique.html" class="text-warning"><strong>VOIR LA BOUTIQUE</strong></a></button>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </main>
+    <footer class="bg-primary text-warning d-md-flex p-3">
+        <div class="col-12 col-md-3 m-4">
+            <h2>Choco Pap</h2>
+            <p class="mx-4">Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit,
+                sed do eiusmod tempor
+                incididunt ut labore et dolore
+                magna aliqua</p>
+        </div>
+        <div class="col-12 col-md-3">
+            <h2>Contact</h2>
+            <p>Adresse : 51 rue du chocolat 75000 Paris</p>
+            <p>Téléphone: 01 23 45 67 89</p>
+            <p>Horaires: 9h00-17h00 du Lundi au vendredi</p>
+        </div>
+        <div class="col-12 col-md-4">
+          <img src="/images/logo facebook.png" alt="logo facebook" style="max-width: 60px;" class="mx-4">
+          <img src="/images/logo insta.png" alt="logo instagram" style="max-width: 60px;" class="mx-4">
+          <img src="/images/logo twitter.png" alt="logo twitter" style="max-width: 60px;" class="mx-4">
+          
+        </div>
+    </footer> 
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="/js/panier.js"></script>   
+</body>
+</html>
