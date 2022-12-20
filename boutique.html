@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/test.css">
-    <script src="/js/bootstrap.bundle.min.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/papstyle.css">
+    <script src="js/bootstrap.bundle.min.js" defer></script>
 
     <title>Choco Pap</title>
 </head>
@@ -16,7 +16,7 @@
     <header class="d-flex">
         <nav class="navbar navbar-expand-lg bg-primary col-12">
             <div class="container-fluid">
-                <img src="/images/logo.png" alt="logo pap" class="img-fluid" style="max-width: 60px;">
+                <img src="images/logo.png" alt="logo pap" class="img-fluid logo">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -24,19 +24,25 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active text-warning" aria-current="page" href="/index.html">Accueil</a>
+                            <a class="nav-link active text-warning" aria-current="page" href="index.html">Accueil</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-warning" href="#">Boutique</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-warning" href="#" id="boutonPanier"><img src="/images/logo panier.png" alt="logo panier" class="" style="width: 30px;"></a>
-                            <div id="panier" class="bg-primary">
-                                <h1>Panier</h1>
+                        <li class="nav-item d-flex">
+                            <p id="widgetPanier"></p>
+                            <a class="nav-link text-warning" href="#" id=""><img src="images/logo panier.png" alt="logo panier" class="boutonPanier"></a>
+                            <div id="panier" class="bg-primary p-3 col-12 col-md-4">
+                                <div class="d-flex mb-4">
+                                    <button class="boutonPanier col-2 bg-primary">X</button>
+                                    <h1 class="fs-2 text-warning col-8 mx-5">Panier</h1>
+                                </div>
                                 <ol id="listePanier">
                                     <li>panier vide</li>
                                 </ol>
-                                <p>Total</p>
+                                <p>Total : <span id="totalPanier"></span> €</p>
+                                <button id="reinitPanier" class="bg-warning text-primary col-12 mb-3">REINITIALISER PANIER</button><br>
+                                <button class="bg-warning text-primary col-12">VALIDER PANIER</button>
                             </div>
                         </li>
                     </ul>
@@ -51,83 +57,93 @@
             <h2 class="h3">FILTRE</h2>
             <form action="*" class="p-3" id="filtre">
                 <fieldset id="filtreCateqories">
-                    <legend>Catégories</legend>
-                    <div>
-                        <input type="checkbox" id="selectTous" name="selectTous" checked>
-                        <label for="selectTous">Tous</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="selectBlanc" name="selectBlanc" class="selectChoco">
-                        <label for="selectBlanc">Chocolat blanc</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="selectLait" name="selectLait" class="selectChoco">
-                        <label for="selectLait">Chocolat au lait</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="selectNoir" name="selectNoir" class="selectChoco">
-                        <label for="selectNoir">Chocolat noir</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="selectNoix" name="selectNoix" class="selectChoco">
-                        <label for="selectNoix">Noix / Noisettes</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="selectFruit" name="selectFruit" class="selectChoco">
-                        <label for="selectFruit">Fruit</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="selectCaramel" name="selectCaramel" class="selectChoco">
-                        <label for="selectCaramel">Caramel</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="selectLiqueur" name="selectLiqueur" class="selectChoco">
-                        <label for="selectLiqueur">Liqueur</label>
-                    </div>
+                    <legend id="titreCategories" class="d-block d-md-none dropdown-toggle">Catégories</legend>
+                    <legend class="d-none d-md-block">Catégories</legend>
+                        <div id="categories">
+                            <div>
+                                <input type="checkbox" id="selectTous" name="selectTous" checked>
+                                <label for="selectTous">Tous</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="selectBlanc" name="selectBlanc" class="selectChoco">
+                                <label for="selectBlanc">Chocolat blanc</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="selectLait" name="selectLait" class="selectChoco">
+                                <label for="selectLait">Chocolat au lait</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="selectNoir" name="selectNoir" class="selectChoco">
+                                <label for="selectNoir">Chocolat noir</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="selectNoix" name="selectNoix" class="selectChoco">
+                                <label for="selectNoix">Noix / Noisettes</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="selectFruit" name="selectFruit" class="selectChoco">
+                                <label for="selectFruit">Fruit</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="selectCaramel" name="selectCaramel" class="selectChoco">
+                                <label for="selectCaramel">Caramel</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="selectLiqueur" name="selectLiqueur" class="selectChoco">
+                                <label for="selectLiqueur">Liqueur</label>
+                            </div>  
+                        </div>   
                 </fieldset>
                 <fieldset id="filtrePrix" class="mt-4">
-                    <legend>Prix</legend>
-                    <div>
-                        <label for="prixMin">Prix min</label>
-                        <select name="prixMin" id="prixMin">
-                            <option class="select" value="1">1€</option>
-                            <option class="select" value="5">5€</option>
-                            <option class="select" value="10">10€</option>
-                            <option class="select" value="15">15€</option>
-                            <option class="select" value="20">20€</option>
-                        </select>
+                    <legend id="titrePrix" class="d-block d-md-none dropdown-toggle">Prix</legend>
+                    <legend class="d-none d-md-block">Prix</legend>
+                    <div id="prix">   
+                        <div>
+                            <label for="prixMin">Prix min</label>
+                            <select name="prixMin" id="prixMin">
+                                <option class="select" value="1">1€</option>
+                                <option class="select" value="5">5€</option>
+                                <option class="select" value="10">10€</option>
+                                <option class="select" value="15">15€</option>
+                                <option class="select" value="20">20€</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="prixMax">Prix max</label>
+                            <select name="prixMax" id="prixMax">
+                                <option class="select" value="5">5€</option>
+                                <option class="select" value="10">10€</option>
+                                <option class="select" value="15">15€</option>
+                                <option class="select" value="20" selected>20€</option>
+                            </select>
+                        </div>
                     </div>
-                    <div>
-                        <label for="prixMax">Prix max</label>
-                        <select name="prixMax" id="prixMax">
-                            <option class="select" value="5">5€</option>
-                            <option class="select" value="10">10€</option>
-                            <option class="select" value="15">15€</option>
-                            <option class="select" value="20" selected>20€</option>
-                        </select>
-                    </div>
+                    
                 </fieldset>
                 <fieldset id="filtreNote" class="mt-4">
-                    <legend>Notes</legend>
-                    <div>
-                        <label for="noteMin">Note min</label>
-                        <select name="noteMin" id="noteMin">
-                            <option class="select" value="1">1</option>
-                            <option class="select" value="2">2</option>
-                            <option class="select" value="3">3</option>
-                            <option class="select" value="4">4</option>
-                            <option class="select" value="5">5</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="noteMax">Note max</label>
-                        <select name="noteMax" id="noteMax">
-                            <option class="select" value="1">1</option>
-                            <option class="select" value="2">2</option>
-                            <option class="select" value="3">3</option>
-                            <option class="select" value="4">4</option>
-                            <option class="select" value="5" selected>5</option>
-                        </select>
+                    <legend id="titreNote" class="d-block d-md-none dropdown-toggle">Notes</legend>
+                    <legend class="d-none d-md-block dropdown-toggle">Notes</legend>
+                    <div id="note">
+                        <div>
+                            <label for="noteMin">Note min</label>
+                            <select name="noteMin" id="noteMin">
+                                <option class="select" value="1">1</option>
+                                <option class="select" value="2">2</option>
+                                <option class="select" value="3">3</option>
+                                <option class="select" value="4">4</option>
+                                <option class="select" value="5">5</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="noteMax">Note max</label>
+                            <select name="noteMax" id="noteMax">
+                                <option class="select" value="1">1</option>
+                                <option class="select" value="2">2</option>
+                                <option class="select" value="3">3</option>
+                                <option class="select" value="4">4</option>
+                                <option class="select" value="5" selected>5</option>
+                            </select>
+                        </div>
                     </div>
                 </fieldset>
             </form>
@@ -152,15 +168,15 @@
             <p>Horaires: 9h00-17h00 du Lundi au vendredi</p>
         </div>
         <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
-          <img src="/images/logo facebook.png" alt="logo facebook" style="max-width: 60px;" class="mx-4">
-          <img src="/images/logo insta.png" alt="logo instagram" style="max-width: 60px;" class="mx-4">
-          <img src="/images/logo twitter.png" alt="logo twitter" style="max-width: 60px;" class="mx-4">
+          <img src="images/logo facebook.png" alt="logo facebook" class="mx-4 logo">
+          <img src="images/logo insta.png" alt="logo instagram" class="mx-4 logo">
+          <img src="images/logo twitter.png" alt="logo twitter" class="mx-4 logo">
         </div>
     </footer> 
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="/js/produits.js"></script>
-    <script src="/js/panier.js"></script>
+    <script src="js/produits.js"></script>
+    <script src="js/panier.js"></script>
     
 </body>
 

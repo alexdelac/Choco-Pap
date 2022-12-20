@@ -36,9 +36,9 @@ fetch('/products.json')
             produitNote.className = 'card-text';
             var boutonAjout = document.createElement('button');
             boutonAjout.innerHTML = 'ajouter au panier';
-            boutonAjout.className = 'btn btn-primary text-warning';
-            boutonAjout.id = "ajoutPanier" + chocolat.id
-            boutonAjout.value = chocolat.id
+            boutonAjout.className = 'btn btn-primary text-warning ajoutPanier';
+            boutonAjout.id = "ajoutPanier" + chocolat.id;
+            boutonAjout.value = chocolat.id;
             document.getElementById('produits').appendChild(card);
             document.getElementById('card' + [i]).appendChild(lienProduit);
             document.getElementById('lienProduit' + [i]).appendChild(produitImg);
@@ -101,7 +101,7 @@ fetch('/products.json')
       }
     }
 
-    // affichage des produits au chargement de la page ou après reload
+    // affichage des produits au chargement de la page
     filtre();
 
 
@@ -123,14 +123,33 @@ fetch('/products.json')
       }
     })
 
-    //rechargement de la page pour application filtre prix et note
-    $('.select').on('click', function () {
-      location.reload();
+    
+    // au click modifie la value du prix ou de la note et affiche les produits correspondants
+    $(document).on('click', '.select', function() {
+      prixMin = document.getElementById('prixMin').value
+      prixMax = document.getElementById('prixMax').value
+      noteMin = document.getElementById('noteMin').value
+      noteMax = document.getElementById('noteMax').value
+      $('#produits').empty();
+      filtre()
     })
-
+    
 
   })
 
+
+  //filtre avec item déroulant sur petits écrans
+  $('#titreCategories').on("click", function () {
+    $("#categories").toggle("slide");
+  });
+
+  $('#titrePrix').on("click", function () {
+    $("#prix").toggle("slide");
+  });
+
+  $('#titreNote').on("click", function () {
+    $("#note").toggle("slide");
+  });
 
 
 

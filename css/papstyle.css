@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+@font-face {
+    font-family: 'DroidSerif';
+    src: url(../fonts/DroidSerif-Regular.ttf) format('truetype');
+}
+
+body {
+    font-family: 'DroidSerif';
+}
+
+h1 {
+    font-size: 7em;
+    font-family: 'Fjalla One', sans-serif;
+}
+
+.imgCarousel {
+    max-height: 90vh;
+}
+
+#panier {
+    position: absolute;
+    top: 80px;
+    right: 0px;
+    z-index: 1000;
+}
+
+#widgetPanier {
+    width: 20px;
+    height: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.photoPanier {
+    max-width: 60px;
+}
+
+.imagePanier {
+    object-fit: cover;
+    height: 50px;
+    width: 90px;
+}
+
+.imageDetail {
+    width: 400px;
+}
+
+.boutonPanier {
+    width: 30px;
+}
+
+.logo {
+    width: 60px;
+}
